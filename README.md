@@ -1,4 +1,4 @@
-# gesfrom
+# gesform
 # Gestion des offres de formation d'une école
 
 Le projet consiste à créer un site web afin de gérer l’offre d’une formation dans une école privée. Un catalogue est édité pour lister les formations disponibles.
