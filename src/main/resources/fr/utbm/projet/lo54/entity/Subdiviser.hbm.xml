@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 mai 2020 ? 14:42:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.projet.lo54.entity.Subdiviser" table="subdiviser" catalog="lo54formation" optimistic-lock="version">
+        <composite-id name="id" class="fr.utbm.projet.lo54.entity.SubdiviserPK">
+            <key-property name="sesNumero" type="long">
+                <column name="SES_NUMERO" />
+            </key-property>
+            <key-property name="frtNumero" type="long">
+                <column name="FRT_NUMERO" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

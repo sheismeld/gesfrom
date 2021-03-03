@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 mai 2020 ? 14:42:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.projet.lo54.entity.Formation" table="formation" catalog="lo54formation">
+        <id name="frtNumero" type="java.lang.Long">
+            <column name="FRT_NUMERO" />
+            <generator class="increment"></generator>
+        </id>
+        <property name="admNumero" type="java.lang.Long">
+            <column name="ADM_NUMERO" not-null="true" />
+        </property>
+        <property name="prtCode" type="java.math.BigInteger">
+            <column name="PRT_CODE" not-null="true" />
+        </property>
+        <property name="frtLibelle" type="string">
+            <column name="FRT_LIBELLE" length="50" not-null="true" />
+        </property>
+        <property name="frtDescription" type="string">
+            <column name="FRT_Description" length="65535" not-null="true" />
+        </property>
+        <property name="frtDateDebut" type="java.util.Date">
+            <column name="FRT_DATE_DEBUT" length="50" not-null="true" />
+        </property>
+        <property name="frtDateFin" type="java.util.Date">
+            <column name="FRT_DATE_FIN" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

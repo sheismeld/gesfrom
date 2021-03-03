@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf" 
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <head>
+        <title>LO54</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="resources/admin.css" rel="stylesheet" type="text/css" /> 
+        <link rel="stylesheet" type="text/css" href="../styles.css" />
+    </head>
+    <f:view>
+
+        <h:body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 170%" >
+            <ui:include src="toolbar.xhtml"/>
+            <h2 class="text-primary mt-5" style="text-align: center">Inscrire une formation</h2>
+
+        <h:form  class="container offset-4 mt-4">
+            <div class="form-group col-4">
+                <p:outputLabel value="Formation * : " />
+                <h:selectOneMenu value = "${formationBean.frtLibelle}" class="form-control"> 
+                    <f:selectItems value="${formationBean.formationList}" var="u" itemValue="${u.frtNumero}" itemLabel="${u.frtLibelle} " class="form-control" />  
+                </h:selectOneMenu>  
+            </div> <br/>
+            <div class="form-group col-4">
+                <p:outputLabel value="Session* : " />
+                <h:selectOneMenu value = "${formationBean.nom}" class="form-control"> 
+                    <f:selectItems value="${formationBean.userList}" var="f" itemValue="${f.sesNumero}" itemLabel="Du   ${f.sesDateDebut}  Au  ${f.sesDateFin} " class="form-control" />  
+                </h:selectOneMenu>  
+            </div> <br/>
+            
+            <input type="submit" class="btn btn-success" jsf:action="#{formationBean.returnAction()}" value="Programmer" />
+
+        </h:form><br/>
+
+
+
+
+    </h:body>
+</f:view>
+</html>

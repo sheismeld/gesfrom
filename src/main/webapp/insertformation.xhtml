@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <!-- Adding BootStrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 100%">
+        <ui:include src="toolbar.xhtml"/>
+        <h:outputScript library="js" name="scriptinsert.js" />
+        <h:form id="insertformation" onsubmit="insf()">
+
+
+            <div class="container" id="cont" style='background-color: #DCDCDC ;padding: 50px'>
+                <p:outputLabel id="Messages" value="${formationBean.msg}" />
+                <p:messages id="mssg" autoUpdate="true" />
+                <div class="form-row">
+                    <div class="col-6">
+                        
+                        
+                        <div class="form-group">
+                            <p:outputLabel id="admNumeroLbl" value="Admin Numero*:" />
+                            <p:inputText id="admNumeroTxt" class="form-control" value="${formationBean.numAdm}" />
+                        </div>
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="prtCodeLbl" value="Promotion Code*:" />
+                            <p:inputText id="prtCodeTxt" class="form-control" value="${formationBean.code}" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="frtLibelleLbl" value="formation Libelle*:" />
+                            <p:inputText  id="frtLibelleTxt"  class="form-control" value="#{formationBean.frtLibelle}" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="frtDescriptionLbl" value="formation Description*:" />
+                            <p:inputText id="frtDescriptionTxt" class="form-control" value="#{formationBean.frtDescription}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="frtDateDebutLbl" value="formation de Date Debut*:" />
+                            <p:inputText id="frtDateDebutTxt" class="form-control" value="#{formationBean.date}" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="frtDateFinLbl" value="formation de Date Fin*:" />
+                            <p:inputText id="frtDateFinTxt" class="form-control" value="#{formationBean.date2}" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <div class="btn-group">
+                            <p:commandButton id="btn1" type="submit"  action="#{formationBean.insertFormation()}"  class="btn bg-primary" value="Enregistre"  update="Messages datatable">
+
+                            </p:commandButton>
+                            <p:commandButton id="btn2" type="reset"  class="btn bg-primary" value="Annuler" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+ <br/>
+            <div class="container">
+                <div class="card-header">
+                    Liste des formations
+            </div>
+                <div class="container">
+                    <p:dataTable id="datatable" var="p" value="${formationBean.formationList}">
+
+                        <p:column headerText="ID Formation">
+                            <p:outputLabel id="PID" value="${p.frtNumero}" />
+                        </p:column>
+                        <p:column headerText=" ID Adnim">
+                            <p:outputLabel id="AID" value="${p.admNumero}" />
+                        </p:column>
+                        <p:column headerText="Code">
+                            <p:outputLabel id="CODEID" value="${p.prtCode}" />
+                        </p:column>
+                        <p:column headerText="lIBELLE">
+                            <p:outputLabel id="lIBELLEID" value="${p.frtLibelle}" />
+                        </p:column>
+                        <p:column headerText="Description">
+                            <p:outputLabel id="DescriptionID" value="${p.frtDescription} " />
+                        </p:column>
+                        <p:column headerText="Date de debut">
+                            <p:outputLabel id="DATEID" value="${p.frtDateDebut}" />
+                        </p:column>
+                        <p:column headerText="Date de fin">
+                            <p:outputLabel id="DATE2" value="${p.frtDateFin}" />
+                        </p:column>
+
+
+                        <p:column headerText="actions">
+                            <p:commandButton id="delbtn" style="width: 110px" value="Delete" class="btn bg-danger" action="${formationBean.deleteFormation(p.frtNumero)}" />
+                            <hr/>
+                                <p:commandButton value="Modifier" style="width: 110px" type="button" class="btn bg-warning" onclick="PF('dlg${p.frtNumero}').show();" /> 
+                
+                <p:dialog header="Modifier une formation" widgetVar="dlg${p.frtNumero}" showEffect="explode" hideEffect="bounce" height="500">
+                                
+                    <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="eadmNumeroLbl" value="Admin Numero*:" />
+                            <p:inputText id="eadmNumeroTxt" class="form-control" value="${p.admNumero}" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="eprtCodeLbl" value="Promotion Code*:" />
+                            <p:inputText id="eprtCodeTxt" class="form-control" value="${p.prtCode}" />
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="form-row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <p:outputLabel id="efrtLibelleLbl" value="formation Libelle*:" />
+                                <p:inputText  id="efrtLibelleTxt"  class="form-control" value="${formationBean.frtLibelle}" />
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <p:outputLabel id="efrtDescriptionLbl" value="formation Description*:" />
+                                <p:inputText id="efrtDescriptionTxt" class="form-control" value="${formationBean.frtDescription}" />
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="efrtDateDebutLbl" value="formation de Date Debut*:" />
+                            <p:calendar id="efrtDateDebutTxt" class="form-control" value="#{formationBean.frtDateDebut}"/>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="efrtDateFinLbl" value="formation de Date Fin*:" />
+                            <p:calendar id="efrtDateFinTxt" class="form-control" value="#{p.frtDateFin}"/>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="row">
+                        <div class="col-6">
+                        <div class="form-group">
+                            <p:commandButton id="eupdbtn" value="Modifier" class="btn bg-warning" action="${p.updateFormation(p.frtNumero)}" />  
+                        </div>
+                    </div>
+                    </div>
+                    
+           
+            </p:dialog>
+                            
+                        </p:column>
+
+                    </p:dataTable>
+
+
+
+                </div>
+                </div>
+
+
+                
+        
+        </h:form>
+        
+
+        </h:body>
+
+</html>
+

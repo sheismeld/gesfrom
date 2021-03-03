@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>lo54</title>
+    </h:head>
+
+   <h:body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 170%">
+    
+        <ui:include src="toolbar.xhtml"/>
+        <h:panelGrid columns="1" cellpadding="5">
+                    <div class="form-group">
+                        <p:outputLabel id="eadmNumeroLbl" value="Recherche par libellé" />
+                        <p:inputText id="eadmNumeroTxt" class="form-control" value="${formationBean.frtLibelle}" />
+                        <p:commandButton value="Rechercher" type="submit" id="ta" onclick="document.getElementById('tt').style.visibility='visible'
+                                           "  action="#{formationBean.getfindFormaList(formationBean.frtLibelle)}" /> 
+
+                    </div>
+                    <p:commandButton value="Voir le résultat de la recherche" id="tt"   type="submit"   onclick="PF('dlg3').show();" /> 
+
+        </h:panelGrid>
+        <p:panel id="liste" header="Liste des Formations" style="margin-bottom: 20px">
+            
+            <h:form>
+                <p:dataTable var="forma" value="#{formationBean.getformaListPro()}" > 
+
+                    <p:column headerText="Id">
+                        <h:outputText value="#{forma.frtNumero}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="admin Numero">
+                        <h:outputText value="#{forma.admNumero}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Code">
+                        <h:outputText value="#{forma.prtCode}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Libelle">
+                        <h:outputText value="#{forma.frtLibelle}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Description">
+                        <h:outputText value="#{forma.frtDescription}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Date de Debut">
+                        <h:outputText value="#{forma.frtDateDebut}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Date de Fin">
+                        <h:outputText value="#{forma.frtDateFin}"></h:outputText>
+                    </p:column>
+
+
+                </p:dataTable>
+
+            </h:form>  
+
+            <h:form>
+                <p:dialog header="Effects" widgetVar="dlg3"  showEffect="explode" hideEffect="bounce" height="1000">
+                    <h:outputText value="Résultat de votre recherche" />
+
+
+
+                    <p:dataTable var="for" value="#{formationBean.getfindFormaList(formationBean.frtLibelle)}" >
+
+
+
+                        <p:column headerText="Id">
+                           
+                            <h:outputText value="#{for.frtNumero}"></h:outputText>
+                        </p:column>
+
+                        <p:column headerText="admin Numero">
+                            <h:outputText value="#{for.admNumero}"></h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Code">
+                            <h:outputText value="#{for.prtCode}"></h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Libelle">
+                            <h:outputText value="#{for.frtLibelle}"></h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Description">
+                            <h:outputText value="#{for.frtDescription}"></h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Date de Debut">
+                            <h:outputText value="#{for.frtDateDebut}"></h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Date de Fin">
+                            <h:outputText value="#{for.frtDateFin}"></h:outputText>
+                        </p:column>
+
+                    </p:dataTable>
+
+                </p:dialog>
+            </h:form>
+            
+     
+        </p:panel>
+    </h:body>
+</html>
+

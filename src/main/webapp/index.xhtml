@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 170%">
+    
+        <div>   
+            <p:menubar>
+                <p:menuitem value="S'inscrire" outcome="insertUser" />
+                <p:menuitem value="Connexion" outcome="login"/>
+                <p:separator />               
+            </p:menubar>
+        </div>
+        <br/>
+        
+        <div class="container">
+            <div>
+                <h3 align="center" class="text-primary"> Liste des formations disponibles </h3> <br/>
+                <h6 align="center"> Veuillez vous authentifier <span> <h:link outcome="login"> ici </h:link> </span> pour vous inscrire à une formation </h6>
+            </div>
+            <br/>
+            <p:dataTable id="datatable" var="p" value="${formationBean.formationList}">
+                <p:column headerText="ID Formation">
+                    <p:outputLabel id="PID" value="${p.frtNumero}" />
+                </p:column>
+                <p:column headerText=" ID Adnim">
+                    <p:outputLabel id="AID" value="${p.admNumero}" />
+                </p:column>
+                <p:column headerText="Code">
+                    <p:outputLabel id="CODEID" value="${p.prtCode}" />
+                </p:column>
+                <p:column headerText="lIBELLE">
+                    <p:outputLabel id="lIBELLEID" value="${p.frtLibelle}" />
+                </p:column>
+                <p:column headerText="Description">
+                    <p:outputLabel id="DescriptionID" value="${p.frtDescription} " />
+                </p:column>
+                <p:column headerText="Date de debut">
+                    <p:outputLabel id="DATEID" value="${p.frtDateDebut}" />
+                </p:column>
+                <p:column headerText="Date de fin">
+                    <p:outputLabel id="DATE2" value="${p.frtDateFin}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+        
+        <!-- <h:link outcome="poppupxhtml" value="ouvrire" /><br/>
+        
+        <h:link outcome="insertUser" value="insertion des Utilisateur" /> <br/>
+            <h:link outcome="getformalist" value="Liste des formations" /><br/>
+            <h:link outcome="insertformation" value="Insertion des formations" /><br/>
+            <h:link outcome="getuserslist" value="Liste des Utilisateur" /><br/>
+            <h:link outcome="getsessionlist" value="Liste des Sessions" /> <br />
+            
+            <h:link outcome="getadminList" value="Liste des Administrateurs" /><br/>
+             <h:link outcome="signUser" value="Inscrire user" /> <br />
+             <h:link outcome="login" value="se connecter" /> <br />
+             
+             <h:link outcome="inscrireUtilisateur" value="liste des utilisateurs inscrit" /> <br /> -->
+             
+             
+    </h:body>
+</html>
+

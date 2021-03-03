@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/lo54formation?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"/>
+    <property name="current_session_context_class">thread</property>
+    <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping resource="fr/utbm/projet/lo54/entity/Localisation.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Formation.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Utilisateur.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Promotion.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Mysession.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Administrateur.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Subdiviser.hbm.xml"/>
+    <mapping resource="fr/utbm/projet/lo54/entity/Inscription.hbm.xml"/>
+    <!--<mapping class="fr.utbm.entity.Test"/>-->
+    <!--<mapping resource="fr/utbm/dvdstore/core/entity/Film.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Utilisateur.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Session.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Formation.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Administrateur.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Localisation.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Inscription.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Promotion.hbm.xml"/>
+    <mapping resource="fr/utbm/formation/lo54/model/Subdiviser.hbm.xml"/>-->
+  </session-factory>
+</hibernate-configuration>

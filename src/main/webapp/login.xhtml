@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <title>LO54</title>
+    </h:head>
+    <f:view>
+        <body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 170%;">
+            <div class="container mt-5" >
+                <div style='margin-top: 8rem'></div>
+                <div class="row mt-5">
+                    <div class="col-sm-6 col-md-6 col-lg-6 offset-3" style='background-color: #DCDCDC ;padding: 50px'>
+            <h3 class="text-primary" align="center"> Connexion </h3>
+       
+            <h:form>
+                <p:outputLabel value="E-mail:*" />
+                <p:inputText id="login" value="#{loginBean.utiAdresseEmail}" type="text"
+                       required="true"
+                       requiredMessage="La saisie du login est obligatoire !" class='form-control'/>
+                <h:message for="login" styleClass="errorBlock" />
+                <br/>
+                
+                <p:outputLabel value="Mot de passe*:" /> 
+                <p:inputText id="password" value="#{loginBean.utiPassword}" type="password"
+                       required="true"
+                       requiredMessage="La saisie du mot de passe est obligatoire !" class='form-control'/>
+                <h:message for="password" styleClass="errorBlock" />
+                <br/><br/>               
+                <div>
+                    <p:commandButton type="submit" action="#{loginBean.returnAction}" value="Se connecter"  class="btn btn-primary"/> <br/>
+                    <p align="right"> pas de compte ? <span> <h:link outcome="insertUser"> inscrivez vous ici </h:link> </span> </p>
+                </div>                
+           </h:form>
+                    </div>
+                </div>              
+            </div>
+        </body>
+    </f:view>
+</html>

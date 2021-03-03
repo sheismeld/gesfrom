@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="fr.utbm.projet.lo54.entity.Administrateur" optimistic-lock="version" schema="lo54formation" table="administrateur">
+        <id name="admNumero" type="java.lang.Long">
+          <column name="ADM_NUMERO"/>
+          <generator class="increment"/>
+        </id>
+        
+        <property name="admNom" type="string">
+          <column length="50" name="ADM_NOM" not-null="true"/>
+        </property>
+        
+        <property name="admPrenom" type="string">
+          <column length="35" name="ADM_PRENOM" not-null="true"/>
+        </property>
+
+
+        <property name="admSexe" type="string">
+          <column  length="1" name="ADM_SEXE" not-null="false"/>
+        </property>
+    
+  </class>
+
+</hibernate-mapping>

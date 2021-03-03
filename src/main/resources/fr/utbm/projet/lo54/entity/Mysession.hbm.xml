@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="fr.utbm.formationlo54.model.Mysession" optimistic-lock="version" schema="lo54formation" table="mysession">
+        <id name="sesNumero" type="java.lang.Long">
+            <column name="SES_NUMERO" />
+            <generator class="identity" />
+        </id>
+        <property name="locIentifiant" type="long">
+            <column name="LOC_IENTIFIANT" not-null="true" />
+        </property>
+        <property name="sesDateDebut" type="date">
+            <column name="SES_DATE_DEBUT" length="10" not-null="true" />
+        </property>
+        <property name="sesDateFin" type="date">
+            <column name="SES_DATE_FIN" length="10" not-null="true" />
+        </property>
+    
+    </class>
+
+</hibernate-mapping>

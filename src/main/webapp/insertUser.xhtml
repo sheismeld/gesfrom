@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>lo54</title>
+        <!-- Adding BootStrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="css/cutom.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body style='background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat; background-size: 100% 115%' >
+        
+        <div class="container mt-5">
+           <div class="row">
+               <div class="col-sm-9 col-lg-9 offset-1"  style='background-color: #DCDCDC ;padding: 50px'>
+            <h3 align="center" class="text-primary"> Inscription </h3>
+            <h4 class="text-success" style="text-align: center"> ${utilisateurBean.msg} </h4>
+        <h:form id="insertUser" onsubmit="inf()">
+            
+            <div class="container" id="cont">
+                <p:outputLabel id="Messages" value="${utilisateurBean.msg}" />
+                <p:messages id="mssg" autoUpdate="true" />
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="nomLbl" value="Nom*:" />
+                            <p:inputText id="NomTxt" class="form-control" value="${utilisateurBean.utiNom}" required='true'/>
+                            <h:message for="Nom" styleClass="errorBlock" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="prenomLbl" value="Prénom*:" />
+                            <p:inputText id="prenomTxt" class="form-control" value="${utilisateurBean.utiPrenom}" required='true'/>
+                            <h:message for="Prénom" styleClass="errorBlock" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="dateLbl" value="Date de naissance*:" />
+                            <p:inputText  id="dateTxt"  class="form-control" value="${utilisateurBean.date}" required='true'/>
+                            <h:message for="Date de naissance" styleClass="errorBlock" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="numRueLbl" value="Numero de rue*:" />
+                            <p:inputText id="numRueTxt" class="form-control" value="${utilisateurBean.utiNumeroRue}" required='true'/>
+                            <h:message for="Numero de rue" styleClass="errorBlock" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="nomRueLbl" value="Nom rue*:" />
+                            <p:inputText id="nomRueTxt" class="form-control" value="${utilisateurBean.utiNomRue}" required='true'/>
+                            <h:message for="Nom rue" styleClass="errorBlock" />
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="villeLbl" value="Ville*:" />
+                            <p:inputText id="villeTxt" class="form-control" value="${utilisateurBean.utiVille}" required='true'/>
+                            <h:message for="Numero de rue" styleClass="errorBlock" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="codePLbl" value="Code postale*:" />
+                            <p:inputText id="codePTxt" class="form-control" value="${utilisateurBean.utiCodePostale}" required='true'/>
+                            <h:message for="Code postale" styleClass="errorBlock" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="emailLbl" value="Email*:" />
+                            <p:inputText id="emailTxt" class="form-control" value="${utilisateurBean.utiAdresseEmail}" required='true'/>
+                            <h:message for="Email" styleClass="errorBlock" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <p:outputLabel id="passLbl" value="Mot de passe*:" />
+                            <p:inputText id="passlTxt" class="form-control" value="${utilisateurBean.utiPassword}" required='true'/>
+                            <h:message for="password" styleClass="errorBlock" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="btn-group">
+                        <p:commandButton id="b1" type="submit" class="btn bg-primary" value="S'enregistrer" action="${utilisateurBean.insertUsser()}" update="Messages datatable"/>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger"><h:link class="btn btn-danger" outcome="index"> Annuler </h:link></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p:dataTable id="datatable" style="visibility: hidden"></p:dataTable>
+        </h:form>
+               </div>
+           </div>
+        </div>
+
+    </h:body>
+    
+    
+</html>
+

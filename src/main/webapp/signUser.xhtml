@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf" 
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <head>
+        <title>LO54</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="resources/admin.css" rel="stylesheet" type="text/css" /> 
+        <link rel="stylesheet" type="text/css" href="../styles.css" />
+    </head>
+    <f:view>
+
+        <h:body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 170%" >
+            <ui:include src="toolbar.xhtml"/>
+            <h2 class="text-primary mt-5" style="text-align: center">Inscrire un utilisateur</h2>
+             <div class="container" style='background-color: #DCDCDC ;padding: 50px'>
+                <h4 class="text-primary" align="center">Pourecentage de remplissage de toutes les formations</h4>
+             <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: ${inscriptionBean.listInscrit.size()}%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">${inscriptionBean.listInscrit.size()}%</div>
+             </div>
+            </div>
+
+            <h:form  class="container mt-5 offset-4">
+                
+                <div class="form-group col-4">
+                    <p:outputLabel value="Etudiant* : " />
+                    <h:selectOneMenu value = "${inscriptionBean.nom}" class="form-control"> 
+                        <f:selectItems value="${inscriptionBean.userList}" var="u" itemValue="${u.utiNom}" itemLabel="${u.utiNom} ${u.utiPrenom} " class="form-control" />  
+                    </h:selectOneMenu>  
+                </div> <br/>
+                <div class="form-group col-4">
+                    <p:outputLabel value="Formation* : " />
+                    <h:selectOneMenu value = "${inscriptionBean.libelle}" class="form-control"> 
+                        <f:selectItems value="${inscriptionBean.formationList}" var="f" itemValue="${f.frtLibelle}" itemLabel="${f.frtLibelle} " class="form-control" />  
+                    </h:selectOneMenu>  
+                </div> <br/>
+                <input type="submit" class="btn btn-success" jsf:action="#{inscriptionBean.returnAction()}" value="Inscrire" />
+
+            </h:form><br/>
+
+
+        </h:body>
+    </f:view>
+</html>

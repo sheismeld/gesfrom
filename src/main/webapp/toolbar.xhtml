@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>lo54</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:menubar class="btn-dark" style="background-color: #cdff00">
+        <p:submenu label="Utilisateurs">
+            <p:menuitem value="Liste des utilisateurs" outcome="getuserslist" />
+            <p:menuitem value="Ajouter un utilisateur" outcome="insertUser" />
+            <p:separator />
+            <p:menuitem value="Inscrire un utilisateur à une formation" outcome="signUser" />
+            <p:separator />
+            <p:menuitem value="Liste des utilisateurs déjà Inscrit " outcome="inscrireUtilisateur" />
+        </p:submenu>
+ 
+        <p:submenu label="Formations">
+            <p:menuitem value="liste des formations" outcome="getAllFormation" />
+            <p:menuitem value="ajouter une formation" outcome="insertformation" />
+            <p:separator />
+            <p:menuitem value="formations programmées" outcome="getformalist" />
+            <p:menuitem value="formations par session" outcome="getFormationProgrammer" />
+            <p:menuitem value="Programmer une formation" outcome="programmerFormation" />
+        </p:submenu>
+ 
+        <p:submenu label="Sessions">
+            <p:menuitem value="liste des sessions" outcome="getsessionlist" />
+            <p:menuitem value="Ajouter une session" outcome="insertSession" />
+            <p:separator />
+        </p:submenu>
+ 
+        <p:submenu label="Administrateur">
+            <p:menuitem value="Liste des administrateurs" outcome="getadminList"/>
+            <p:menuitem value="Ajouter un administrateur" outcome="insertAdministrateur"/>
+        </p:submenu>
+ 
+        <f:facet name="options">
+            <h:link class="btn btn-default white-text"  outcome="login"> deconnexion </h:link>
+        </f:facet>
+    </p:menubar>
+    </h:body>
+</html>

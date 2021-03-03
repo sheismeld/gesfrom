@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="fr.utbm.td_projetLo54_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>fr.utbm.projet.lo54.entity.Localisation_1</class>
+    <class>fr.utbm.projet.lo54.entity.Subdiviser_1</class>
+    <class>fr.utbm.projet.lo54.entity.Administrateur</class>
+    <class>fr.utbm.projet.lo54.entity.Session_1</class>
+    <class>fr.utbm.projet.lo54.entity.Promotion_1</class>
+    <class>fr.utbm.projet.lo54.entity.Utilisateur</class>
+    <class>fr.utbm.projet.lo54.entity.Inscription_1</class>
+    <class>fr.utbm.projet.lo54.entity.Formation_1</class>
+    <class>fr.utbm.projet.lo54.entity.Promotion</class>
+    <class>fr.utbm.projet.lo54.entity.Localisation</class>
+    <class>fr.utbm.projet.lo54.entity.Inscription</class>
+    <class>fr.utbm.projet.lo54.entity.Formation</class>
+    <class>fr.utbm.projet.lo54.entity.Subdiviser</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="hibernate.dialect" value=" org.hibernate.dialect.MysqlDialect"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lo54formation"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="show_sql" value="true"/>
+      <property name="format_sql" value="true"/>
+      <property name="hbm2ddl.auto" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

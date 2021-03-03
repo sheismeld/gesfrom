@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="resources/admin.css" rel="stylesheet" type="text/css" /> 
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="background-image: url(resources/Image/utbm.jpg); background-repeat: no-repeat;background-size: 100% 200%">   
+        <ui:include src="toolbar.xhtml"/>
+        <h:outputScript library="js" name="jsAdmin.js" />
+         <h2 class="text-primary mt-5" style="text-align: center">Ajouter une séssion</h2>
+         <h4 class="text-success" style="text-align: center"> ${sessionBean.msg} </h4>
+        <div class="container mt-5 offset-3">
+           
+        <h:form onsubmit="returnToAdmin()">
+            <div class="insertadmin">
+                
+                <div class="col-sm-8 col-md-6 col-lg-6 " style='background-color: #DCDCDC ;padding: 50px'>
+                 <div class="form-group col-11">
+                    <p:outputLabel value="Date de début de la séssion*:" />
+                    <p:inputText class="form-control" value="${sessionBean.datedebut}" required="true" requiredMessage="Veuillez remplir ce champs"/>
+                 </div> <br/>
+                <div class="form-group col-11">
+                    <p:outputLabel value="Date de fin de la séssion*:" />
+                    <p:inputText class="form-control" value="${sessionBean.datefin}" required="true" requiredMessage="Veuillez remplir ce champs"/>
+                </div> <br/>
+                <div class="form-group col-11">
+                    <p:outputLabel value="Ville de la séssion*:" />
+                    <h:selectOneMenu value = "${sessionBean.villesession}" required="true" requiredMessage="Veuillez remplir ce champs"> 
+                        <f:selectItems value="${localisationBean.getlocalisation()}" var="ville" itemValue="${ville.locCity}" itemLabel="${ville.locCity}" class="form-control" />  
+                     </h:selectOneMenu>  
+                </div> <br/>
+                <div>
+                     <p:commandButton type="submit" id="btnsubmitAdmin" class="btn btn-success" value="Ajouter" action="${sessionBean.insertSession()}"/>
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                     <h:link class="btn btn-primary" outcome="getsessionlist">Liste des sessions</h:link>
+                     
+                     
+                </div>
+             </div>
+            </div>
+        </h:form>
+        </div>
+    </h:body>
+</html>
+

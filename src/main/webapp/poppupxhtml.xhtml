@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:view>
+        <h:head>
+        </h:head>
+        <h:body>
+            <h:panelGrid columns="1" cellpadding="5">
+                <p:commandButton value="Basic" type="button" onclick="PF('dlg1').show();" />
+
+                <p:commandButton value="Modal" type="button" onclick="PF('dlg2').show();" />
+
+                <p:commandButton value="Effects" type="button" onclick="PF('dlg4').show();" /> 
+            </h:panelGrid>
+            <p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+                <h:outputText value="Resistance to PrimeFaces is futile!" />
+            </p:dialog>
+
+            <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+                <h:outputText value="This is a Modal Dialog." />
+            </p:dialog>   
+
+            <p:dialog header="Effects" widgetVar="dlg4" showEffect="explode" hideEffect="bounce" height="100">
+                <h:outputText value="This dialog has nice effects." />
+            </p:dialog>
+
+        </h:body>
+    </f:view>
+</html>

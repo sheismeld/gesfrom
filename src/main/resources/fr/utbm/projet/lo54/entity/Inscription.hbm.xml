@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 mai 2020 ? 14:42:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.projet.lo54.entity.Inscription" table="inscription" catalog="lo54formation" optimistic-lock="version">
+        <composite-id name="id" class="fr.utbm.projet.lo54.entity.InscriptionPK">
+            <key-property name="frtNumero" type="long">
+                <column name="FRT_NUMERO" />
+            </key-property>
+            <key-property name="utiNumero" type="long">
+                <column name="UTI_NUMERO" />
+            </key-property>
+        </composite-id>
+        <property name="nbrForma" type="java.lang.Long">
+            <column name="NBR_FORMA" />
+        </property>
+        <property name="insPrix" type="big_decimal">
+            <column name="INS_PRIX" precision="3" />
+        </property>
+    </class>
+</hibernate-mapping>
